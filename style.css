@@ -512,3 +512,36 @@ body.dark-mode .ubicacion-box p,
 body.dark-mode .footer-info p {
   color: #e0e0e0 !important; /* Textos claros legibles */
 }
+
+/* Estilos responsivos para celulares (pantallas de 768px o menos) */
+@media (max-width: 768px) {
+  /* Hacemos que los contenedores principales ocupen todo el ancho y se apilen en columna */
+  .about-box, .saga-box {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 10px !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  /* Las imágenes de las carreras, historia y tour se ajustan al ancho de la pantalla */
+  .saga-poster {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: cover;
+  }
+
+  /* El texto se alinea bien y no se sale de los márgenes */
+  .saga-text {
+    width: 100% !important;
+    padding: 10px 0 !important;
+    text-align: left;
+  }
+
+  /* Títulos de las secciones adaptados para que no queden gigantes */
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
