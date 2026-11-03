@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itace Html</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO / NAVEGACIÓN INSTITUCIONAL -->
+  <header>
+    <!-- LOGO A LA IZQUIERDA -->
+    <a href="index.html" class="logo-link">
+  <img src="imagenes/Logotamaulipas.jpg" alt="Logo Tamaulipas ITACE" class="logo-img">
+</a>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#inicio" class="nav-btn">Inicio</a></li>
+        <li><a href="#intro" class="nav-btn">Intro</a></li>
+        <li><a href="#historia" class="nav-btn">Historia</a></li>
+        <li><a href="#carreras" class="nav-btn">Carreras</a></li>
+        <li><a href="#himnos" class="nav-btn">Himnos</a></li>
+        <li><a href="#tour" class="nav-btn">Tour</a></li>
+        <li><a href="#curiosidades" class="nav-btn">Dato Curioso</a></li>
+        <li><a href="#actividades" class="nav-btn">Actividades</a></li>
+        <li><a href="#ubicacion" class="nav-btn">Ubicacion</a></li>
+        <li><a href="docentes.html" class="nav-btn">Docentes</a></li>
+        <li><a href="#" id="modo-btn" class="nav-btn" onclick="toggleModoOscuro(event)">🌙</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN 1: INICIO (BANNER PRINCIPAL) -->
+  <section id="inicio" class="banner-section">
+    <div class="banner-container">
+      <img src="imagenes/otrologo.jpg" alt="Banner Principal ITACE" class="banner-img">
+    </div>
+
+    <!-- VIDEO INSTITUCIONAL DEL ITACE -->
+    <div class="video-container" id="intro">
+      <video controls class="responsive-video">
+        <source src="video/videoitace.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+
+    <!-- SECCIÓN: HISTORIA DEL ITACE -->
+    <div id="historia" class="about-box saga-box">
+      <img src="imagenes/abeja2.jpg" alt="Historia del ITACE" class="saga-poster">
+      
+      <div class="saga-text">
+        <h3>Historia del ITACE</h3>
+        <p>
+          El <strong>Instituto Tamaulipeco de Capacitación para el Empleo (ITACE)</strong> es una institución fundamental en el estado de Tamaulipas, creada con el firme propósito de ofrecer educación media superior y capacitación para el trabajo de alta calidad.
+        </p>
+        <p class="mt-10">
+          A lo largo de los años, el ITACE se ha distinguido por preparar a jóvenes competitivos, brindándoles herramientas prácticas y técnicas que les permiten integrarse con éxito al sector productivo o continuar con su desarrollo profesional.
+        </p>
+      </div>
+    </div>
+
+    <!-- TÍTULO DE CARRERAS TÉCNICAS -->
+<div id="carreras" class="about-box saga-box" style="justify-content: center; text-align: center; padding: 18px 30px; border: none;">
+  <h2 style="font-family: 'Montserrat', sans-serif; color: #f1c40f; font-size: 2rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+    Carreras Técnicas
+  </h2>
+</div>
+    
+    <!-- 1. Diseño Gráfico -->
+    <div class="about-box saga-box">
+      <img src="imagenes/disenografico.jpg" alt="Carrera de Diseño Gráfico" class="saga-poster">
+      <div class="saga-text">
+        <h3>Diseño Gráfico</h3>
+        <p>
+          Consiste en crear diseños visuales para comunicar ideas mediante imágenes, colores, letras y formas. Aprendes a utilizar programas de diseño para elaborar logotipos, carteles, anuncios, publicidad, ilustraciones y contenido para redes sociales.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Mantenimiento Automotriz -->
+    <div class="about-box saga-box">
+      <img src="imagenes/automotriz.jpg" alt="Carrera de Mantenimiento Automotriz" class="saga-poster">
+      <div class="saga-text">
+        <h3>Mantenimiento Automotriz</h3>
+        <p>
+          Se enfoca en aprender cómo funcionan los automóviles y cómo revisar, reparar y mantener sus diferentes sistemas. Estudias motores, frenos, transmisiones, sistemas eléctricos y electrónicos, además del uso de herramientas de diagnóstico.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3. Mantenimiento Industrial -->
+    <div class="about-box saga-box">
+      <img src="imagenes/industrial.jpg" alt="Carrera de Mantenimiento Industrial" class="saga-poster">
+      <div class="saga-text">
+        <h3>Mantenimiento Industrial</h3>
+        <p>
+          Consiste en aprender a revisar, reparar y mantener las máquinas y los equipos que se utilizan en fábricas e industrias. Puedes estudiar electricidad, motores, sistemas mecánicos, neumática, hidráulica y detección de fallas para evitar que las máquinas dejen de funcionar.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. Ciberseguridad -->
+    <div class="about-box saga-box">
+      <img src="imagenes/ciberseguridad.jpg" alt="Carrera de Ciberseguridad" class="saga-poster">
+      <div class="saga-text">
+        <h3>Ciberseguridad</h3>
+        <p>
+          Se dedica a proteger computadoras, redes, sistemas y datos contra robos, virus y ataques informáticos. Aprendes sobre seguridad de redes, detección de amenazas, protección de información y formas de prevenir vulnerabilidades.
+        </p>
+      </div>
+    </div>
+
+    <!-- 5. Inteligencia Artificial -->
+    <div class="about-box saga-box">
+      <img src="imagenes/ia.jpg" alt="Carrera de Inteligencia Artificial" class="saga-poster">
+      <div class="saga-text">
+        <h3>Inteligencia Artificial</h3>
+        <p>
+          Consiste en aprender a desarrollar y utilizar sistemas capaces de realizar tareas como reconocer imágenes, interpretar lenguaje, analizar datos y generar respuestas. Dependiendo del programa de estudios, puedes aprender programación, matemáticas, manejo de datos y fundamentos de aprendizaje automático (machine learning).
+        </p>
+      </div>
+    </div>
+
+    <!-- 6. Logística -->
+    <div class="about-box saga-box">
+      <img src="imagenes/logistica.jpg" alt="Carrera de Logística" class="saga-poster">
+      <div class="saga-text">
+        <h3>Logística</h3>
+        <p>
+          Se encarga de organizar el transporte, almacenamiento y distribución de productos para que lleguen al lugar correcto y a tiempo. Aprendes a controlar inventarios, organizar mercancías, planear rutas, registrar entradas y salidas y mejorar los procesos de distribución.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN: VÍDEO DESTACADO -->
+   <div id="himnos" class="about-box saga-box" style="justify-content: center; text-align: center; padding: 18px 30px; margin-top: 30px; border: none;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #f1c40f; font-size: 2rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+      Himnos y Audios
+    </h2>
+  </div>
+
+  <section class="episode-section">
+    <div class="about-box episode-box">
+      <div class="episode-video-container">
+        <video controls class="responsive-video">
+          <source src="video/himnotamaulipas.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </div>
+    <div class="about-box episode-box">
+      <div class="episode-video-container">
+        <video controls class="responsive-video">
+          <source src="video/himnoitace.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- TÍTULO PRINCIPAL: TOUR POR EL ITACE -->
+  <div id="tour" class="about-box saga-box" style="justify-content: center; text-align: center; padding: 18px 30px; margin-top: 30px; border: none;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #f1c40f; font-size: 2rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+      Tour por el ITACE
+    </h2>
+  </div>
+
+  <!-- 1. ENTRADA PRINCIPAL -->
+  <div class="about-box saga-box">
+    <img src="imagenes/entrada.jpg" alt="Entrada ITACE" class="saga-poster">
+    <div class="saga-text">
+      <h3>1. Entrada Principal</h3>
+      <p>
+        La puerta de acceso principal al plantel, donde se recibe día a día a toda la comunidad estudiantil, personal docente y visitantes con las medidas de seguridad correspondientes.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. FORO -->
+  <div class="about-box saga-box">
+    <div class="saga-text">
+      <h3>2. Foro</h3>
+      <p>
+        Espacio multifuncional diseñado para la realización de eventos escolares, ceremonias cívicas, presentaciones culturales, conferencias y actividades recreativas del plantel.
+      </p>
+    </div>
+    <img src="imagenes/foro.jpg" alt="Foro ITACE" class="saga-poster">
+  </div>
+
+  <!-- 3. VINCULACIÓN -->
+  <div class="about-box saga-box">
+    <img src="imagenes/vinculacion.jpg" alt="Oficina de Vinculación" class="saga-poster">
+    <div class="saga-text">
+      <h3>3. Área de Vinculación</h3>
+      <p>
+        Departamento encargado de coordinar las relaciones del instituto con el sector productivo, gestionar prácticas profesionales, servicio social y bolsa de trabajo para los estudiantes.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. PASEO DEL ESTUDIANTE -->
+  <div class="about-box saga-box">
+    <div class="saga-text">
+      <h3>4. Paseo del Estudiante</h3>
+      <p>
+        Área verde y pasillo principal al aire libre, ideal para la convivencia, el descanso entre clases y el tránsito cómodo hacia las distintas áreas del instituto.
+      </p>
+    </div>
+    <img src="imagenes/paeodelestudiantes.jpg" alt="Paseo del Estudiante" class="saga-poster">
+  </div>
+
+  <!-- 5. SALONES Y TALLERES -->
+  <div class="about-box saga-box">
+    <img src="imagenes/salones.jpg" alt="Salones y Talleres ITACE" class="saga-poster">
+    <div class="saga-text">
+      <h3>5. Salones y Talleres</h3>
+      <p>
+        Aulas totalmente equipadas y laboratorios/talleres prácticos especializados para el desarrollo académico y la capacitación técnica adecuada de cada especialidad.
+      </p>
+    </div>
+  </div>
+
+  <!-- 6. COMEDORES -->
+  <div class="about-box saga-box">
+    <div class="saga-text">
+      <h3>6. Comedores</h3>
+      <p>
+        Espacio higiénico y confortable destinado al consumo de alimentos y bebidas, proporcionando un ambiente amigable para el receso de los alumnos.
+      </p>
+    </div>
+    <img src="imagenes/comedores.jpg" alt="Comedores ITACE" class="saga-poster">
+  </div>
+
+  <!-- SECCIÓN: DATO CURIOSO -->
+  <section id="curiosidades" class="trivia-section">
+    <div class="about-box saga-box">
+      <img src="imagenes/sandra.jpg" alt="Profesora Sandra Silva" class="saga-poster">
+      <div class="saga-text">
+        <h3>¿Sabías qué?</h3>
+        <p>
+          La Maestra Sandra Catalina Silva, profesora de Lengua y Comunicación, le dio clases a la Maestra Carolina, profesora de Inglés.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: ACTIVIDADES REALIZADAS POR ALUMNOS -->
+<section class="actividades-section">
+  <!-- TÍTULO DE LA SECCIÓN -->
+  <div class="about-box saga-box" style="justify-content: center; text-align: center; padding: 18px 30px; border: none; margin-bottom: 25px;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #f1c40f; font-size: 2rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+      Actividades, Eventos y Conferencias
+    </h2>
+  </div>
+
+  <!-- CONTENEDOR GUINDA DE LA GALERÍA -->
+  <div id="actividades" class="about-box galeria-contenedor">
+    <div class="galeria-grid">
+
+      <!-- Tarjeta 1 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1FYzcc6PXJ/" target="_blank">
+          <span class="foto-etiqueta">Programación</span>
+          <img src="imagenes/ajedrez.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1ET93QJ2z8/" target="_blank">
+          <span class="foto-etiqueta">Exposición</span>
+          <img src="imagenes/expo.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/19oQw4LYpv/" target="_blank">
+          <span class="foto-etiqueta">Conferencia</span>
+          <img src="imagenes/banda.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1EKDH2sR9D/" target="_blank">
+          <span class="foto-etiqueta">Carrera</span>
+          <img src="imagenes/carrera.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/19M2UebDyX/" target="_blank">
+          <span class="foto-etiqueta">Concurso</span>
+          <img src="imagenes/danza.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/18nJVdtMyM/" target="_blank">
+          <span class="foto-etiqueta">Concurso</span>
+          <img src="imagenes/escolta.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 7 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1GeNRtifKd/" target="_blank">
+          <span class="foto-etiqueta">Alumnos Dual</span>
+          <img src="imagenes/dual.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 8 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/19ck4R9foj/" target="_blank">
+          <span class="foto-etiqueta">Banda</span>
+          <img src="imagenes/banda2.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 9 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1EksJWX6wp/" target="_blank">
+          <span class="foto-etiqueta">Feria Ciencia Y Tecnologia</span>
+          <img src="imagenes/feriacyt.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+      <!-- Tarjeta 10 -->
+      <div class="tarjeta-foto">
+        <a href="https://www.facebook.com/share/p/1EksJWX6wp/" target="_blank">
+          <span class="foto-etiqueta">feria Ciencia y Tecnologia</span>
+          <img src="imagenes/feriacyt2.jpg" class="foto-img" alt="Actividad">
+        </a>
+      </div>
+
+    </div> <!-- Cierre de galeria-grid -->
+  </div> <!-- Cierre de galeria-contenedor -->
+</section> <!-- Cierre de actividades-section -->
+
+<!-- SECCIÓN UBICACIÓN (Caja independiente) -->
+<section id="ubicacion" class="about-box ubicacion-box">
+  <h2>Ubicación del Plantel</h2>
+  <p>Calle Octava y Zaragoza #515, colonia Prolongación Las Cumbres, C.P. 88745, Reynosa, Tamaulipas. 
+    Teléfono: +52 899 924 0184</p>
+  
+  <div class="ubicacion-btn-container">
+    <a href="https://maps.app.goo.gl/6Kfkp5kibLfTiBoM7" target="_blank" class="map-btn">
+      Ver ubicación en Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER / PIE DE PÁGINA (Caja independiente) -->
+<footer class="about-box">
+  <div class="footer-content">
+    <div class="footer-info">
+      <h4>Instituto Tamaulipeco de Capacitación para el Empleo</h4>
+      <p><strong>Nombre:</strong> Luis Erubiel Valencia Garcia</p>
+      <p><strong>Grado y Grupo:</strong> 502-B</p>
+      <p><strong>WhatsApp:</strong> +52 899 227 7817</p>
+      <p><strong>Instagram:</strong> krxpp_ / yuski_bpv</p>
+      <p><strong>Facebook:</strong> Luis Valencia</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Enlace al archivo de JavaScript externo -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+/* =========================================================
+   1. CONFIGURACIÓN GENERAL Y FONDO CREMA
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffcd9f !important; /* FONDO CREMOSO INSTITUCIONAL */
+  color: #1a1a1a !important;            /* TEXTO GENERAL OSCURO */
+  line-height: 1.6;
+  padding-top: 70px !important;         /* Espacio para el header fijo */
+}
+
+/* =========================================================
+   2. PANTALLA DE BIENVENIDA / HERO (index.html)
+   ========================================================= */
+.body-bienvenida {
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-top: 0 !important;
+}
+
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('imagenes/portadainiciooo.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right, 
+    rgba(65, 3, 24, 0.95) 0%,   
+    rgba(65, 3, 24, 0.75) 40%,  
+    rgba(65, 3, 24, 0.20) 80%,  
+    rgba(65, 3, 24, 0.05) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute !important;
+  bottom: 30px !important;   /* Lo pega hacia la parte de abajo */
+  right: 40px !important;    /* Lo manda hacia la derecha, justo donde apunta tu dedo */
+  left: auto !important;     /* Evita que se estire desde la izquierda */
+  transform: none !important; /* Quita cualquier centrado anterior */
+  z-index: 10 !important;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+.hero-btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #5c0626;
+  background-color: #ffffff;
+  padding: 14px 34px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #f1c40f;
+  color: #5c0626;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   3. BARRA SUPERIOR Y MENÚ DE NAVEGACIÓN (EN BLANCO)
+   ========================================================= */
+header, 
+.navbar, 
+.header-container {
+  background-color: #ffffff !important; /* BANNER SUPERIOR BLANCO */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 10px 25px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.logo, 
+.logo img, 
+header img {
+  max-height: 45px !important;
+  border-radius: 4px !important;
+  display: block !important;
+}
+
+nav, 
+.nav-links, 
+.menu-navegacion {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 18px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+nav li, 
+.nav-links li, 
+.menu-navegacion li {
+  list-style: none !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Letras oscuras en el menú sobre fondo blanco */
+nav a, 
+.nav-links a, 
+.menu-navegacion a,
+.nav-btn {
+  color: #410318 !important; /* Color vino oscuro para las opciones */
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  text-decoration: none !important;
+  padding: 4px 6px !important;
+  white-space: nowrap !important;
+  transition: color 0.2s ease !important;
+}
+
+nav a:hover, 
+.nav-links a:hover, 
+.menu-navegacion a:hover,
+.nav-btn:hover {
+  color: #f1c40f !important; /* Dorado al pasar el cursor */
+  background: transparent !important;
+}
+
+/* =========================================================
+   4. BANNERS, VIDEOS Y CAJAS DE INFORMACIÓN (EN BLANCO)
+   ========================================================= */
+.banner-container {
+  width: 100% !important;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  overflow: hidden; /* Oculta lo que sobrepase los bordes */
+}
+
+.banner-img {
+  width: 100% !important;
+  height: 380px !important;
+  object-fit: cover !important;
+  
+  /* PRUEBA ESTAS OPCIONES MANUALMENTE EN TU CÓDIGO: */
+  object-position: center 40% !important; 
+  /* El primer valor (center) mueve de izquierda a derecha. 
+     El segundo valor (30%) mueve de arriba hacia abajo:
+     - Si pones 'center 10%' se va muy arriba (ves la abeja).
+     - Si pones 'center 80%' se va muy abajo (ves el texto).
+     - Prueba con 'center 40%' o 'center 50%' para buscar el punto exacto donde se vea TODO. */
+}
+
+/* CONTENEDOR DEL VIDEO EN BLANCO */
+.video-container {
+  display: flex !important;
+  justify-content: center !important;
+  background-color: #ffffff !important; /* Fondo blanco */
+  width: 95% !important;
+  max-width: 1400px !important;
+  margin: 30px auto !important;
+  padding: 35px 40px !important;
+  border-radius: 0px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+  box-sizing: border-box !important;
+}
+
+.responsive-video {
+  width: 100% !important;
+  max-width: none !important;
+  border-radius: 0px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* CAJAS DE INFORMACIÓN (FONDO BLANCO Y TEXTOS OSCUROS) */
+.about-box {
+  background-color: #ffffff !important;  /* Fondo blanco puro */
+  color: #1a1a1a !important;             /* Texto general negro/oscuro */
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 35px 40px;
+  border-radius: 0px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Textos y títulos dentro de las cajas en color oscuro para legibilidad */
+.about-box h3, 
+.about-box h2, 
+.saga-text h3 {
+  color: #410318 !important;             /* Títulos principales en vino institucional */
+}
+
+.about-box p {
+  color: #2c3e50 !important;             /* Párrafos oscuros de alta legibilidad */
+}
+
+.saga-box {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.saga-poster {
+  width: 240px;
+  height: 180px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 0px;
+}
+
+.saga-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+/* TÍTULOS DE SECCIÓN */
+.titulo-seccion {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  color: #410318 !important;
+  margin: 45px 0 25px 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* =========================================================
+   5. GALERÍA DE ACTIVIDADES
+   ========================================================= */
+.galeria-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 15px !important;
+  width: 95% !important;
+  max-width: 1400px !important;
+  margin: 0 auto 30px auto !important;
+  box-sizing: border-box !important;
+}
+
+.tarjeta-foto {
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tarjeta-foto a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  text-decoration: none !important;
+  position: relative !important;
+  cursor: pointer;
+  color: #ffffff !important;
+}
+
+.tarjeta-foto a:visited,
+.tarjeta-foto a:hover,
+.tarjeta-foto a:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.foto-img {
+  width: 100% !important;
+  height: 160px !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.3s ease !important;
+}
+
+.tarjeta-foto:hover .foto-img {
+  transform: scale(1.05) !important;
+}
+
+.foto-pie {
+  display: none !important;
+}
+
+.foto-etiqueta {
+  position: absolute !important;
+  top: 8px !important;
+  left: 8px !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 4px 10px !important;
+  border-radius: 0px !important;
+  z-index: 2 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: capitalize !important;
+}
+
+/* =========================================================
+   6. PIE DE PÁGINA / FOOTER (EN BLANCO)
+   ========================================================= */
+footer.about-box {
+  background-color: #ffffff !important;    /* Footer blanco puro */
+  color: #1a1a1a !important;               /* Texto oscuro */
+  text-align: left !important;
+  padding: 30px 45px !important;
+  margin-top: 50px !important;
+}
+
+.footer-content, 
+.footer-info {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  gap: 6px !important;
+}
+
+.footer-info h4 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #410318 !important;               /* Título en vino */
+  margin: 0 0 6px 0 !important;
+  text-transform: uppercase !important;
+}
+
+.footer-info p {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #2c3e50 !important;               /* Texto oscuro legible */
+  margin: 2px 0 !important;
+  line-height: 1.4 !important;
+}
+
+.footer-info .author-name,
+.author-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #410318 !important;               /* Destacado en vino */
+  margin: 8px 0;
+}
+
+.highlight {
+  color: #410318 !important;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SECCIÓN UBICACIÓN Y BOTÓN
+   ========================================================= */
+.ubicacion-box {
+  text-align: left;
+}
+
+.ubicacion-box h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: #410318 !important;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.ubicacion-box p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: #2c3e50 !important;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.ubicacion-btn-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.map-btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff !important;
+  background-color: #410318 !important;
+  padding: 12px 30px !important;
+  border-radius: 0px !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.map-btn:hover {
+  background-color: #f1c40f !important;
+  color: #410318 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* SEPARACIÓN DE SECCIONES */
+.galeria-contenedor,
+.ubicacion-box,
+footer.about-box {
+  margin-top: 35px !important;
+  margin-bottom: 35px !important;
+}
+
+/* =========================================================
+   MODO OSCURO (Se activa con la clase .dark-mode en el body)
+   ========================================================= */
+body.dark-mode {
+  background-color: #1a0108 !important; /* Fondo vino muy oscuro y elegante */
+  color: #f6f4ee !important;
+}
+
+body.dark-mode header, 
+body.dark-mode .navbar, 
+body.dark-mode .header-container {
+  background-color: #2b020f !important; /* Barra superior vino oscuro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode nav a, 
+body.dark-mode .nav-links a, 
+body.dark-mode .menu-navegacion a,
+body.dark-mode .nav-btn {
+  color: #ffffff !important; /* Letras blancas en el menú */
+}
+
+body.dark-mode .about-box,
+body.dark-mode .video-container,
+body.dark-mode footer.about-box,
+body.dark-mode .banner-container {
+  background-color: #2b020f !important; /* Cajas y contenedores oscuros */
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .about-box h3, 
+body.dark-mode .about-box h2, 
+body.dark-mode .saga-text h3,
+body.dark-mode .titulo-seccion,
+body.dark-mode .ubicacion-box h2,
+body.dark-mode .footer-info h4 {
+  color: #f1c40f !important; /* Títulos en dorado suave para resaltar en oscuro */
+}
+
+body.dark-mode .about-box p,
+body.dark-mode .ubicacion-box p,
+body.dark-mode .footer-info p {
+  color: #e0e0e0 !important; /* Textos claros legibles */
+}

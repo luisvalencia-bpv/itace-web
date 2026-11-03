@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docentes - ITACE Plantel Reynosa</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ESTILOS ESPECÍFICOS DE LA PLANTILLA DOCENTE */
+    body {
+      background-color: #f6f4ee !important; /* Fondo Crema Institucional */
+      margin: 0;
+      padding-top: 75px;
+    }
+
+    /* BARRA SUPERIOR FIJA DE NAVEGACIÓN */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #410318; /* Vino */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 25px;
+      box-sizing: border-box;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    header img.logo {
+      max-height: 45px;
+      border-radius: 4px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav.nav-links a {
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    nav.nav-links a:hover,
+    nav.nav-links a.active {
+      color: #f1c40f; /* Dorado al pasar mouse o estar activo */
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .docentes-container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* ENCABEZADO CON BUSCADOR A LA DERECHA */
+    .header-docentes-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .titulo-docentes-box {
+      background-color: #410318;
+      padding: 15px 25px;
+      border-radius: 0px;
+    }
+
+    .titulo-docentes-box h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: #f6f5f0;
+      font-size: 1.6rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* CAJA DE BÚSQUEDA ARRIBA A LA DERECHA */
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border: 2px solid #410318;
+      border-radius: 4px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: #333;
+      width: 250px;
+    }
+
+    /* BARRA INFORMATIVA DE CAMPOS (TIPO ENCABEZADO DE TABLA) */
+    .campos-referencia-box {
+      background-color: #410318;
+      color: #ffffff;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      border-radius: 0px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .campos-referencia-box h4 {
+      margin: 0 0 8px 0;
+      color: #f2f1ed;
+      text-transform: uppercase;
+    }
+
+    .campos-lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #f6f4ee;
+    }
+
+    .campo-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    /* GRID DE TARJETAS DE DOCENTES */
+    .docentes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    /* TARJETA INDIVIDUAL MAESTRO */
+    .docente-card {
+      background-color: #410318; /* Fondo Vino */
+      color: #f6f4ee;
+      padding: 22px;
+      border-radius: 0px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .docente-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    /* FOTO AUTORIZADA */
+    .docente-foto {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #f8f7f2; /* Borde Dorado */
+      margin-bottom: 15px;
+      background-color: #ffffff;
+    }
+
+    /* INFORMACIÓN DEL DOCENTE */
+    .docente-info {
+      width: 100%;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .docente-info h3.nombre-docente {
+      font-family: 'Montserrat', sans-serif;
+      color: #f9f8f5;
+      font-size: 1.2rem;
+      margin: 0 0 12px 0;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .docente-row {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .docente-label {
+      font-weight: 700;
+      color: #ffffff;
+      display: inline-block;
+    }
+
+    /* BOTÓN PARA REGRESAR */
+    .volver-container {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      background-color: #410318;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 0px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #5c0523;
+      color: #f1c40f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN FIJA -->
+  <header>
+    <img src="imagenes/Logotamaulipas.jpg" alt="Tamaulipas Logo" class="logo">
+    <nav class="nav-links">
+      <a href="principal.html#inicio">Inicio</a>
+      <a href="principal.html#intro">Intro</a>
+      <a href="principal.html#historia">Historia</a>
+      <a href="principal.html#carreras">Carreras</a>
+      <a href="principal.html#himnos">Himnos</a>
+      <a href="principal.html#tour">Tour</a>
+      <a href="principal.html#dato">Dato Curioso</a>
+      <a href="principal.html#actividades">Actividades</a>
+      <a href="principal.html#ubicacion">Ubicación</a>
+      <a href="docentes.html" class="active">Docentes</a>
+    </nav>
+  </header>
+
+  <main class="docentes-container">
+
+    <!-- SECCIÓN TITULO Y BUSCADOR -->
+    <div class="header-docentes-bar">
+      <div class="titulo-docentes-box">
+        <h2>Plantilla Docente ITACE</h2>
+      </div>
+
+      <!-- BUSCADOR A LA DERECHA -->
+      <div class="search-container">
+        <input type="text" id="inputBuscador" placeholder="🔍 Buscar por nombre de maestro..." onkeyup="buscarDocente()">
+      </div>
+    </div>
+
+    <!-- BARRA CON LA LISTA DE CAMPOS INFORMATIVOS -->
+    <div class="campos-referencia-box">
+      <h4>Estructura de la Ficha Informativa:</h4>
+      <div class="campos-lista">
+        <span class="campo-item"> Fotografía Autorizada</span>
+        <span class="campo-item"> Nombre del Docente</span>
+        <span class="campo-item"> Salón</span>
+        <span class="campo-item"> Materias que Imparte</span>
+        <span class="campo-item"> Semestres Correspondientes</span>
+        <span class="campo-item"> Breve Perfil Profesional</span>
+      </div>
+    </div>
+
+    <!-- LISTA DE 10 DOCENTES EN GRID -->
+    <div class="docentes-grid" id="gridDocentes">
+
+      <!-- MAESTRO 1 -->
+      <div class="docente-card">
+        <img src="imagenes/isidro.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Isidro de Leon Flores</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Mayormente afuera</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Educacion Fisica Premilitar</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> Todos los semestres</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Psicopedagogia y lic en Pedagogia</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 29</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 2 -->
+      <div class="docente-card">
+        <img src="imagenes/walter.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Walter Alan Barrera Cerda</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A2</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ingles 3 y Club de Rondalla</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro 2do 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing Industrial y Administracion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 13</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 3 -->
+      <div class="docente-card">
+        <img src="imagenes/lerma.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Luis Enrique Lerma Martinez</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> B2</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Lengua y Comunicacion, Sociemocionales, Conciencia Historica</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 2do y 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Pedagogia, Ing Petrolero, Diplomado en competencias Docentes</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 33</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 4 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Gerardo de la Rosa Ortega</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A4</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ingles</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Licenciado en Contaduria</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 5 -->
+      <div class="docente-card">
+        <img src="imagenes/erikahd.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Erika Aide Perez Abrego</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A1</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ciencias Naturales, Humanidades</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 3ro y 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing Industrial en Sistemas, Maestria en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Info no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 6 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Samuel Gonzales de la Fuente</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C7</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Pensamiento Filosofico, Ciencias Sociales, Estudios Listerarios</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Administracion de Empresas, Carrera Tecnica de Ebanisteria</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Pensamiento Filosofico </p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Info no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 7 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Norma Elena Torres Quiñones</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C4</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ciencias Naturales</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro 3ro 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing Quimico, Maestro en Docencia</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 26</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 8 -->
+      <div class="docente-card">
+        <img src="imagenes/limon.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Benjamin Limon Martinez</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Laboratorio 5</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Informatica, Mod. Programacion e Inteligencia Artificial, Cultura Digital</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro 3ro 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Administracion en Productividad y Calidad, Maestria en Educacion </p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 5</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 9 -->
+      <div class="docente-card">
+        <img src="imagenes/Karla.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente">Karla Valeria Moran Lerma</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> B3</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Pensamiento Filosofico, Ciencias Sociales, Cultura Digital</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Maestria en Educaciom</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 33</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 10 -->
+      <div class="docente-card">
+        <img src="imagenes/lilianahd.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Liliana Rosas Pacheco</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A8</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Humanidades, Pensamiento Filosofico, Conciencia Historica, Lengua y Comunicacion, Formacion Sociemocional</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Pedagogia, Mestria en Educacion Media Superior y Doctorado en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 5</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 11 -->
+      <div class="docente-card">
+        <img src="imagenes/sandraaa.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Sandra Catalina Silva Camacho</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> B4</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Comunicacion</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Mestria en Metodologia de la Enseñanza</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 25</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 12 -->
+      <div class="docente-card">
+        <img src="imagenes/grecia.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Grecia Avalos Ramos</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> B1</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Lengua y Comunicacion</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Maestria</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 3</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 12 -->
+      <div class="docente-card">
+        <img src="imagenes/carmonaaa.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Carlos Malecio Carmona Olivares</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C5 y L2</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Mod. en Diseño Grafico, Ingles</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing en Sistemas, Doctorado en Maestria en Educacion Basica</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 2</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 13 -->
+      <div class="docente-card">
+        <img src="imagenes/bertha.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Bertha Alicia Zapata Aldape</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C6</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Matematicas</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Doctorado en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 2</p>
+        </div>
+      </div> 
+
+      <!-- MAESTRO 14 -->
+      <div class="docente-card">
+        <img src="imagenes/laurahd.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Laura Esmeralda Heredia Blanco</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A7</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ciencias Naturales</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Biologa, Especializada en Fisica y Quimica</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+<!-- MAESTRO 15 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Felipe Hernandez Gonzales</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Inf. no disponible</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Electronica y Semiconductores, Lengua y Comuniacion, Conciencia Historica</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span>  3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing en Electronica</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+<!-- MAESTRO 16 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Yuridia Lizbeth Cepeda Ramos</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> A5</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Matematicas, Ingles</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Maestria en Educacion e Innovacion Educativa, Doctorado en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 17 -->
+      <div class="docente-card">
+        <img src="imagenes/juanpablo.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Juan Pablo Torres Adame</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Inf. no Disponible</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Programacion, Cultura Digital, Club Robotica</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic en Informacion Administrativa y Maestria en Ciencias de la Enseñanza</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> 1</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 18 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Romualdo Guadalupe de la Cruz</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Inf. no Disponible</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Pensamiento Matematico</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing. Mantenimiento Industrial e Industrias Petroleras</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 19 -->
+      <div class="docente-card">
+        <img src="imagenes/uliseshd.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Ulises Solis Rieboles</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Inf. no Disponible</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ciencias Naturales</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1ro, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Biologo, Maestria en Analisis Clinicos, Doctorado en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf, no Autorizada</p>
+        </div>
+      </div>
+
+<!-- MAESTRO 20 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Trinidad Hernandez Barrera</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C7</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Ciencias Naturales</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Biologo</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 21 -->
+      <div class="docente-card">
+        <img src="imagenes/erick.jpg.jpeg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Erick Ramirez Solis</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> Inf. no Disponible</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Pensamiento Matematico</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 1r, 3ro, 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Lic. Electromecanica, Maestria en Educacion</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+      <!-- MAESTRO 22 -->
+      <div class="docente-card">
+        <img src="imagenes/nofoto.jpg" alt="Fotografía autorizada" class="docente-foto">
+        <div class="docente-info">
+          <h3 class="nombre-docente"> Mildred Yasmin Reyes Norberto</h3>
+          <p class="docente-row"><span class="docente-label">Salón:</span> C1</p>
+          <p class="docente-row"><span class="docente-label">Materias que imparte:</span> Temas Selectos Matematicos</p>
+          <p class="docente-row"><span class="docente-label">Semestres correspondientes:</span> 5to</p>
+          <p class="docente-row"><span class="docente-label">Breve perfil profesional:</span> Ing Quimica, Maestria en Docencia</p>
+          <p class="docente-row"><span class="docente-label">Años en el ITACE:</span> Inf. no Autorizada</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTÓN VOLVER -->
+    <div class="volver-container">
+      <a href="principal.html" class="btn-volver">← Volver a la página principal</a>
+    </div>
+
+  </main>
+
+  <!-- LÓGICA DEL BUSCADOR EN TIEMPO REAL -->
+  <script>
+    function buscarDocente() {
+      const textoBusqueda = document.getElementById('inputBuscador').value.toLowerCase();
+      const tarjetas = document.getElementsByClassName('docente-card');
+
+      for (let i = 0; i < tarjetas.length; i++) {
+        const nombre = tarjetas[i].querySelector('.nombre-docente').innerText.toLowerCase();
+        
+        if (nombre.includes(textoBusqueda)) {
+          tarjetas[i].style.display = "flex";
+        } else {
+          tarjetas[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
