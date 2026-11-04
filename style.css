@@ -557,8 +557,9 @@ body.dark-mode .footer-info p {
     justify-content: center !important;
     box-sizing: border-box !important;
     padding: 20px !important;
-    background-size: cover !important;
+    background-size: contain !important;
     background-position: center !important;
+    background-repeat: no-repeat !important;
   }
 
   .hero-content {
