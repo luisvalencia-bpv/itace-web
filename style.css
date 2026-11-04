@@ -546,34 +546,44 @@ body.dark-mode .footer-info p {
   }
 }
 
-/* Ajuste responsivo para la portada / banner principal en celulares */
+/* Ajuste responsivo definitivo para la portada de index.html */
 @media (max-width: 768px) {
-  /* Aseguramos que la sección de inicio o banner no rebase la pantalla */
-  .banner-section, #inicio, .hero {
+  .hero-section {
     width: 100% !important;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
     padding: 20px !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
-  /* Hacemos que el logo o la imagen principal se reduzcan al ancho del teléfono */
-  .banner-section img, #inicio img, .logo-principal {
-    max-width: 80% !important;
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Asegura que cualquier imagen o logo dentro del hero se adapte */
+  .hero-section img, .hero-content img {
+    max-width: 90% !important;
     height: auto !important;
-    display: block;
-    margin: 0 auto;
   }
 
-  /* Centramos y ajustamos el botón de ingreso para que no quede cortado abajo */
-  .btn-ingresar, .boton-explorar {
-    width: 90% !important;
-    max-width: 300px;
-    margin: 20px auto !important;
-    display: block;
-    box-sizing: border-box;
+  /* Estilo y tamaño del botón para que no quede volando ni cortado */
+  .hero-btn {
+    width: 80% !important;
+    max-width: 250px !important;
+    margin-top: 20px !important;
+    padding: 12px 20px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    display: inline-block !important;
   }
 }
