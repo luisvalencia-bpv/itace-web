@@ -584,32 +584,38 @@ body.dark-mode .footer-info p {
   }
 }
 
-/* Ajuste para que la barra de navegación del celular se vea alineada como en PC */
+/* Ajuste definitivo para alinear el menú de navegación en celular */
 @media (max-width: 768px) {
-  /* Selecciona el contenedor de tu menú superior (ajusta la clase si tu nav tiene otro nombre) */
-  nav, .navbar, header {
+  /* Contenedor general del menú o header */
+  header, nav, .navbar {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-direction: column !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    padding: 5px 10px !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    box-sizing: border-box !important;
   }
 
-  /* Agrupa los enlaces de navegación para que fluyan mejor */
+  /* Contenedor de la lista de enlaces */
   nav ul, .nav-links, .menu {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 8px !important;
-    list-style: none !important;
+    align-items: center !important;
+    gap: 6px 10px !important;
     padding: 0 !important;
-    margin: 5px 0 !important;
+    margin: 10px 0 !important;
+    width: 100% !important;
+    list-style: none !important;
   }
 
-  /* Tamaño compacto para los enlaces de texto para que quepan ordenados */
-  nav a, .nav-links a, .menu a {
-    font-size: 0.8rem !important;
-    padding: 4px 6px !important;
+  /* Tamaño y diseño de cada enlace del menú */
+  nav ul li a, .nav-links a, .menu a {
+    font-size: 0.85rem !important;
+    padding: 6px 10px !important;
+    display: inline-block !important;
+    text-align: center !important;
     white-space: nowrap !important;
   }
 }
