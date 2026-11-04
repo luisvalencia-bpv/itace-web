@@ -545,3 +545,35 @@ body.dark-mode .footer-info p {
     font-size: 1.5rem !important;
   }
 }
+
+/* Ajuste responsivo para la portada / banner principal en celulares */
+@media (max-width: 768px) {
+  /* Aseguramos que la sección de inicio o banner no rebase la pantalla */
+  .banner-section, #inicio, .hero {
+    width: 100% !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px !important;
+  }
+
+  /* Hacemos que el logo o la imagen principal se reduzcan al ancho del teléfono */
+  .banner-section img, #inicio img, .logo-principal {
+    max-width: 80% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Centramos y ajustamos el botón de ingreso para que no quede cortado abajo */
+  .btn-ingresar, .boton-explorar {
+    width: 90% !important;
+    max-width: 300px;
+    margin: 20px auto !important;
+    display: block;
+    box-sizing: border-box;
+  }
+}
