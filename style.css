@@ -583,3 +583,33 @@ body.dark-mode .footer-info p {
     z-index: 20 !important; /* Garantiza que sea totalmente clickeable */
   }
 }
+
+/* Ajuste para que la barra de navegación del celular se vea alineada como en PC */
+@media (max-width: 768px) {
+  /* Selecciona el contenedor de tu menú superior (ajusta la clase si tu nav tiene otro nombre) */
+  nav, .navbar, header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 5px 10px !important;
+  }
+
+  /* Agrupa los enlaces de navegación para que fluyan mejor */
+  nav ul, .nav-links, .menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 5px 0 !important;
+  }
+
+  /* Tamaño compacto para los enlaces de texto para que quepan ordenados */
+  nav a, .nav-links a, .menu a {
+    font-size: 0.8rem !important;
+    padding: 4px 6px !important;
+    white-space: nowrap !important;
+  }
+}
