@@ -569,6 +569,8 @@ body.dark-mode .footer-info p {
     align-items: center !important;
     text-align: center !important;
     margin-top: 20px !important;
+    position: relative !important;
+    z-index: 10 !important; /* Lo levanta por encima del overlay */
   }
 
   .hero-btn {
@@ -578,5 +580,6 @@ body.dark-mode .footer-info p {
     padding: 12px 20px !important;
     position: relative !important;
     display: inline-block !important;
+    z-index: 20 !important; /* Garantiza que sea totalmente clickeable */
   }
 }
